@@ -1,0 +1,12 @@
+<classpath>
+  <classpathentry kind="src" excluding="**/.svn/|**/CVS/" path="../BankEjb/target/main/classes"/>
+  <classpathentry kind="src" excluding="**/.svn/|**/CVS/" path="src"/>
+  <classpathentry kind="output" path="target/main/classes"/>
+  <classpathentry kind="lib" path="../BankEjb/lib/javax.servlet.jar"/>
+  <classpathentry kind="lib" path="../BankEjb/lib/javax.servlet.jsp.jar"/>
+  <classpathentry kind="lib" path="../BankEjb/lib/jboss-j2ee.jar"/>
+  <classpathentry kind="lib" path="../BankEjb/lib/jboss-jaxrpc.jar"/>
+  <classpathentry kind="lib" path="../BankEjb/lib/jstl.jar"/>
+  <classpathentry kind="lib" path="../BankEjb/lib/standard.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+</classpath>

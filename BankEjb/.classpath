@@ -1,0 +1,12 @@
+<classpath>
+  <classpathentry kind="src" excluding="**/.svn/|**/CVS/" path="src"/>
+  <classpathentry output="target/main/resources" kind="src" excluding="**/.svn/|**/CVS/" path="config"/>
+  <classpathentry kind="output" path="target/main/classes"/>
+  <classpathentry kind="lib" path="lib/javax.servlet.jar"/>
+  <classpathentry kind="lib" path="lib/javax.servlet.jsp.jar"/>
+  <classpathentry kind="lib" path="lib/jboss-j2ee.jar"/>
+  <classpathentry kind="lib" path="lib/jboss-jaxrpc.jar"/>
+  <classpathentry kind="lib" path="lib/jstl.jar"/>
+  <classpathentry kind="lib" path="lib/standard.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+</classpath>
