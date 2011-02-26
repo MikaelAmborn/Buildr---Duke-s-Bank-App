@@ -22,6 +22,7 @@ define "bank" do
   end
 
   define "BankEjb", :layout=>ejb_layout do
+    package(:jar)
   end
 
   define "BankWeb" do
