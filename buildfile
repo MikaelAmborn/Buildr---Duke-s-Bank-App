@@ -8,6 +8,9 @@ COPYRIGHT = ""
 # Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
+ejb_layout = Layout.new
+ejb_layout[:source, :main, :java] = 'src'
+
 desc "The Bank project"
 define "bank" do
 
@@ -18,7 +21,7 @@ define "bank" do
   define "AppClient" do
   end
 
-  define "BankEjb" do
+  define "BankEjb", :layout=>ejb_layout do
   end
 
   define "BankWeb" do
