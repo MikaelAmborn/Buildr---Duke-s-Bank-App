@@ -22,6 +22,7 @@ define "bank" do
   end
 
   define "BankEjb", :layout=>ejb_layout do
+    compile.with Dir[path_to('lib/*.jar')]
     package(:jar)
   end
 
