@@ -31,6 +31,7 @@ define "bank" do
   end
 
   define "BankWeb", :layout=>web_layout do
+    compile.with project('BankEjb')
     package(:war)
   end
 
