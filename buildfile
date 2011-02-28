@@ -31,6 +31,7 @@ define "bank" do
   end
 
   define "BankWeb", :layout=>web_layout do
+    package(:war)
   end
 
 end
