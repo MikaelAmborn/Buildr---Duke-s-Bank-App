@@ -11,6 +11,10 @@ repositories.remote << "http://www.ibiblio.org/maven2/"
 ejb_layout = Layout.new
 ejb_layout[:source, :main, :java] = 'src'
 
+web_layout = Layout.new
+web_layout[:source, :main, :java] = 'src'
+web_layout[:source, :main, :webapp] = 'WebContent'
+
 desc "The Bank project"
 define "bank" do
 
@@ -26,7 +30,7 @@ define "bank" do
     package(:jar)
   end
 
-  define "BankWeb" do
+  define "BankWeb", :layout=>web_layout do
   end
 
 end
