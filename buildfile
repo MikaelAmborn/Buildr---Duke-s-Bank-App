@@ -33,6 +33,7 @@ define "bank" do
   define "BankWeb", :layout=>web_layout do
     compile.with project('BankEjb'), project('BankEjb').compile.dependencies
     package(:war).include path_to(:source, :main, :java, '/**/*properties'), :path=>'WEB-INF/classes'
+    package(:war).with :libs=>path_to(:source, :main, :webapp, 'WEB-INF/lib/*')
   end
 
 end
