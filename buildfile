@@ -23,6 +23,7 @@ define "bank" do
   manifest["Implementation-Vendor"] = COPYRIGHT
 
   define "AppClient", :layout=>ejb_layout do
+    package(:jar)
   end
 
   define "BankEjb", :layout=>ejb_layout do
