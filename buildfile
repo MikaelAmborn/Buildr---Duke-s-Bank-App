@@ -15,6 +15,9 @@ web_layout = Layout.new
 web_layout[:source, :main, :java] = 'src'
 web_layout[:source, :main, :webapp] = 'WebContent'
 
+ear_layout = Layout.new
+ear_layout[:source, :main, :resources] = 'conf'
+
 desc "The Bank project"
 define "bank" do
 
@@ -22,7 +25,7 @@ define "bank" do
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
 
-  define "BankEar" do
+  define "BankEar", :layout=>ear_layout do
 
   end
 
