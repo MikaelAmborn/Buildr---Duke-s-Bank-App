@@ -24,7 +24,7 @@ define "bank" do
 
   define "AppClient", :layout=>ejb_layout do
     compile.with project('BankEjb'), project('BankEjb').compile.dependencies
-    package(:jar)
+    package(:jar).include path_to(:source, :main, :java, '/**/*properties'), :path=>'appclient'
   end
 
   define "BankEjb", :layout=>ejb_layout do
