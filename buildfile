@@ -22,7 +22,7 @@ define "bank" do
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
 
-  define "AppClient" do
+  define "AppClient", :layout=>ejb_layout do
   end
 
   define "BankEjb", :layout=>ejb_layout do
