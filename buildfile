@@ -22,6 +22,10 @@ define "bank" do
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
 
+  define "BankEar" do
+
+  end
+
   define "AppClient", :layout=>ejb_layout do
     compile.with project('BankEjb'), project('BankEjb').compile.dependencies
     package(:jar).include path_to(:source, :main, :java, '/**/*properties'), :path=>'appclient'
