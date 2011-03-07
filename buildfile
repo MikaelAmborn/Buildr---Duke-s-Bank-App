@@ -27,6 +27,7 @@ define "bank" do
     package(:ear).add :ejb=>project('BankEjb'), :path=>''
     package(:ear).add :war=>project('BankWeb'), :path=>'', :context_root=>'bank'
     package(:ear).include(path_to('conf/*'), :path=>'')
+    package(:ear).display_name = 'JBossDukesBank'
   end
 
   define "AppClient", :layout=>ejb_layout do
