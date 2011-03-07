@@ -15,9 +15,6 @@ web_layout = Layout.new
 web_layout[:source, :main, :java] = 'src'
 web_layout[:source, :main, :webapp] = 'WebContent'
 
-ear_layout = Layout.new
-ear_layout[:source, :main, :resources] = 'conf'
-
 desc "The Bank project"
 define "bank" do
 
@@ -25,10 +22,11 @@ define "bank" do
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
 
-  define "BankEar", :layout=>ear_layout do
+  define "BankEar" do
     package(:ear).add :jar=>project('AppClient'), :path=>''
     package(:ear).add :ejb=>project('BankEjb'), :path=>''
     package(:ear).add :war=>project('BankWeb'), :path=>'', :context_root=>'bank'
+    package(:ear).include(path_to('conf/*'), :path=>'')
   end
 
   define "AppClient", :layout=>ejb_layout do
