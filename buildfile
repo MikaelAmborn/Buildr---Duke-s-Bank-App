@@ -28,6 +28,8 @@ define "bank" do
     package(:ear).add :war=>project('BankWeb'), :path=>'', :context_root=>'bank'
     package(:ear).include(path_to('conf/*'), :path=>'')
     package(:ear).display_name = 'JBossDukesBank'
+    package(:ear).security_roles << {:name=>'BankAdmin', :id=>"admin", :description=>"Administrator role"}
+    package(:ear).security_roles << {:name=>'BankCustomer', :id=>"customer", :description=>"Customer role"}
   end
 
   define "AppClient", :layout=>ejb_layout do
