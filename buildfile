@@ -17,6 +17,8 @@ web_layout[:source, :main, :webapp] = 'WebContent'
 
 Project.local_task(:deploy) {|name| "Deploying project #{name}"}
 Project.local_task(:undeploy) {|name| "Undeploying project #{name}"}
+Project.local_task(:create_db) {|name| "Creating database for #{name}"}
+Project.local_task(:populate_db) {|name| "Populating database for #{name}"}
 
 JBOSS_DIR = '../jboss-4.0.5.GA/server/default/deploy/'
 
@@ -60,4 +62,19 @@ define "bank" do
   task :undeploy do
     rm File.join(JBOSS_DIR, project('BankEar').package(:ear).name.split('/').last)
   end
+
+  task :create_db do
+    run_hsql_script('sql/hsql-create-table.sql')
+  end
+
+  task :populate_db do
+    run_hsql_script('sql/hsql-insert.sql')
+  end
+
+  def run_hsql_script(script)
+    system "java -cp sql/hsqldb.jar org.hsqldb.util.ScriptTool -url jdbc:hsqldb:hsql: -database //localhost:1701 -script #{script}"
+  end
+  
 end
+
+
