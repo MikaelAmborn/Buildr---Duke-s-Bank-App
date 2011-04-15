@@ -15,6 +15,11 @@ web_layout = Layout.new
 web_layout[:source, :main, :java] = 'src'
 web_layout[:source, :main, :webapp] = 'WebContent'
 
+Project.local_task(:deploy) {|name| "Deploying project #{name}"}
+Project.local_task(:undeploy) {|name| "Undeploying project #{name}"}
+
+JBOSS_DIR = '../jboss-4.0.5.GA/server/default/deploy/'
+
 desc "The Bank project"
 define "bank" do
 
@@ -48,4 +53,11 @@ define "bank" do
     package(:war).with :libs=>path_to(:source, :main, :webapp, 'WEB-INF/lib/*')
   end
 
+  task :deploy => :package do
+    cp project('BankEar').package(:ear).to_s, JBOSS_DIR  
+  end
+
+  task :undeploy do
+    rm File.join(JBOSS_DIR, project('BankEar').package(:ear).name.split('/').last)
+  end
 end
